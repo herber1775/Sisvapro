@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+     <style>
+        #myTable_filter input[type="search"] {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+	<div style="font-family: Courier New, monospace;" class="container">
+
+		<main>
+			<section style="width: 100%; float: left;">
+				<h1>Consulta de Boletas</h1>
+				<table id="tablaBoletas" class="table table-hover">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col"></th>
+							<th scope="col">CLIENTE</th>
+							<th scope="col">EMPLEADO</th>
+							<th scope="col">CARRO</th>
+							<th scope="col">CANTIDAD</th>
+							<th scope="col">NUM.SERIE</th>
+							<th scope="col">FECHA EMISIÓN</th>
+							<th scope="col">MONTO</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="venta : ${ventas}">
+							<th scope="row"></th>
+							<td th:text="${venta.cliente.nom}"></td>
+							<td th:text="${venta.empleado.nom}"></td>
+							<td>
+								<table>
+									<tbody>
+										<tr th:each="detalle : ${detallesPorVenta[venta.id]}">
+										    <td th:if="${detalle.carro != null}" th:text="${detalle.carro.descripcion}"></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td>
+								<table>
+									<tbody>
+										<tr th:each="detalle : ${detallesPorVenta[venta.id]}">
+											<td th:if="${detalle.carro != null}" th:text="${detalle.cantidad}"></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td th:text="${venta.numserie}"></td>
+							<td th:text="${venta.fecha}"></td>
+							<td th:text="${venta.monto}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+<script
+        src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#tablaBoletas').DataTable({
+			"language" : {
+				"lengthMenu" : "Mostrando _MENU_ ",
+				"zeroRecords" : "No hay registros a mostrar",
+				"info" : "Página _PAGE_ de _PAGES_",
+				"infoEmpty" : "No records available",
+				"infoFiltered" : "(filtered from _MAX_ total records)"
+			}
+		});
+	});
+</script>
+</html>

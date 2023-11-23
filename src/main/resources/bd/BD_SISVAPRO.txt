@@ -1,0 +1,103 @@
+/*BD SISTEMA SISVAPRO*/
+/*PASO 1: ELIMINAR LA BD*/
+drop database sisvaprov1;
+CREATE DATABASE  IF NOT EXISTS `sisvaprov1`;
+
+/*PASO 2: USAR LA BD ACTUAL*/
+USE `sisvaprov1`;
+
+/*PASO 3: IR AL SPRING Y LEVENTAR LA APLICACIÓN*/
+
+/*PASO 4: CORRER ESTO*/
+INSERT INTO `marca` VALUES 
+(1,'Audi'),
+(2,'Suzuki'),
+(3,'Haval'),
+(4,'Great Wall'),
+(5,'Honda'),
+(6,'Mazda'),
+(7,'Changan'),
+(8,'Mercedes-Benz');
+
+INSERT INTO `tipoempleado` VALUES 
+(1,'administrador'),
+(2,'vendedor');
+
+
+INSERT INTO `cliente` (id_cliente,dni,nombres,apellidos,direccion,correo,telefono) VALUES (1,'11223344','Juan Fernando','Perez del Corral','Los Alamos','juan@gmail.com',994433222),
+(2,'55473873','Ruth','Gutierrez Quecaño','Lurin ','ruth@gmail.com',955546462),
+(3,'98843838','Sofia ','Sánchez Pinar ','San Bartolo ','sofi@gmail.com',944353522),
+(4,'33232555','Valentina','Laverde de la Rosa','Los Alamos','vale@gmail.com',900023322),
+(5,'05909055',' Efraín','Casas Mejía','Lurin','efra@gmail.com',944231342),
+(6,'86776436','Julieta','Ponce de León','Punta Hermosa','juli@gmail.com',912190109),
+(7,'00274763',' Martín Elías','Ríos Acosta ','Lurin','mart@gmail.com',954562522),
+(8,'54442311','Gabriela',' Pava de la Torre','San Bartolo','gabi@gmail.com',900177266),
+(9,'02322334','Sebastián',' Campo Yepes ','Villa el Salvador ','sebas@gmail.com',933110919),
+(10,'76776683','Ana María',' Peña Posada','Los Alamos','ana@gmail.com',911210019),
+(11,'03834839','Mónica Patricia',' Ávalos Mendoza','Lurin','moni@gmail.com',901092910),
+(12,'55545411','Elvia','Muñoz de Hincapié','San Bartolo','elvi@gmail.com',901922212),
+(13,'21349744','Rosa María','Gómez de Jiménez','Los Alamos','rosa@gmail.com',945345677),
+(14,'08038400',' Margarita','Suárez de Muñoz','Lurin','mar@gmail.com',988877213),
+(15,'65667363','Lorena  ','Madrigal de López ','Punta Hermosa','lore@gmail.com',952516522);
+
+INSERT INTO `empleado` (id_empleado,dni,nombres,apellidos,telefono,id_tipo,user,clave,img_empleado) VALUES 
+(1,'75467562', 'Ruth Mery','Gutierrez Quecaño','967867870', 1, 'rut01', 'rut01', 'C:\Users\EDUARDO\Documents\workspace-spring-tool-suite-4-4.18.0.RELEASE\ProyectoWebV2\src\main\resources\static\imgs\usuarios\1.png'),
+(2,'71081921','Eduardo Andrés','Romaní Estrada','975179561',1,'edu28','edu$28','C:\Users\EDUARDO\Documents\workspace-spring-tool-suite-4-4.18.0.RELEASE\ProyectoWebV2\src\main\resources\static\imgs\usuarios\2.png'),
+(3,'33322212','Valery Karoline','Torres Roca','950426737',1,'vale01','vale01','C:UsersRuthDesktopCibertecCiclo-4Lenguaje de Programación IIProyecto-V2Proyecto-V2srcmainwebappimgsusuarios3.png'),
+(4,'44221100','Ana María','Río Arango','978765567',2,'ana444','ana444','C:UsersRuthDesktopCibertecCiclo-4Lenguaje de Programación IIProyecto-V2Proyecto-V2srcmainwebappimgsusuarios4.png'),
+(5,'55645635','Mónica Patricia','Ávalos Mendoza','955542424',2,'patiAva','patiAva','C:UsersRuthDesktopCibertecCiclo-4Lenguaje de Programación IIProyecto-V2Proyecto-V2srcmainwebappimgsusuarios5.png'),
+(6,'23665170','Rosa María','Gómez Jiménez','911123222',2,'rosa236','rosa236','C:UsersRuthDesktopCibertecCiclo-4Lenguaje de Programación IIProyecto-V2Proyecto-V2srcmainwebappimgsusuarios6.png'),
+(7,'00098988','Tulia Adriana','Suárez Muñoz','982772811',2,'tulia0','tulia0','C:UsersRuthDesktopCibertecCiclo-4Lenguaje de Programación IIProyecto-V2Proyecto-V2srcmainwebappimgsusuarios7.png');
+
+
+INSERT INTO `carro`  (id_carro,descripcion,modelo,origen,combustible,precio,stock,anio,nrserie,id_marca) VALUES 
+(1,'Con entradas de aire y faros LEDS, amplia parrilla Singleframe que domina el imponente frente de Audi A1 Sportback','A1 SPORTBACK','Alemania','Gasolina',26610.8,3999,2020,'4S3BMHB68B3286050',1),
+(2,'Retrovisores exteriores con ajuste eléctrico y térmicos. Faros Full LED. Grupos ópticos traseros LED de A3 Sedan','A3 SEDAN','Alemania','Gasolina',25210,3000,2020,'4S3BMHB68B3286050',1),
+(3,'Vehículo deportivo 100% eléctrico, lleva 2 motores electricos. Tamaño similar al Audi A7 de E-TRON','E-TRON','Alemania','Gasolina',27110.8,4000,2020,'4S3BMHB68B3286050',1),
+(4,'Caja MT,Aros de aleación 15",Pantalla Táctil,Control de audio en volante, Aire acondicionado,Frenos ABS','ALL NEW CELERIO','Japon','Gasolina',12490,3999,2020,'4S3BMHB68B3286050',2),
+(5,'El Suzuki Dzire es la evolución del Swiff, un poco más grande y con más capacidad manteniendo un diseño deportivo, aerodinámico y único.','DZIRE','Japon','Gasolina',13490,4000,2020,'4S3BMHB68B3286050',2),
+(6,'Motor 1.2, Aire acondicionado automático, Doble airbag frontal, Aros de aleación 15¨,Panel multi información con reloj digital y cierre centralizado','NUEVO SWIFT','Japon','Gasolina',14990,4000,2020,'4S3BMHB68B3286050',2),
+(7,'Aquí agrega una descripción acerca del auto','NEW HAVAL JOLION','Rusia','Gasolina',19290,4000,2020,'4S3BMHB68B3286050',3),
+(8,'Aquí agrega una descripción acerca del auto','ALL NEW HAVAL DARGO','Rusia','Gasolina',28990,4000,2020,'4S3BMHB68B3286050',3),
+(9,'Aquí agrega una descripción acerca del auto','ALL NEW H6','Rusia','Gasolina',24590,4000,2020,'4S3BMHB68B3286050',3),
+(10,'Aquí agrega una descripción acerca del auto','WINGLE 5','China','Gasolina',13690,4000,2020,'4S3BMHB68B3286050',4),
+(11,'Aquí agrega una descripción acerca del auto','POER','China','Gasolina',20590,4000,2020,'4S3BMHB68B3286050',4),
+(12,'Aquí agrega una descripción acerca del auto','WINGLE 7','China','Gasolina',19090,4000,2020,'4S3BMHB68B3286050',4),
+(13,'Aquí agrega una descripción acerca del auto','NEW MAZDA2 SEDÁN','Japon','Gasolina',17490,4000,2020,'4S3BMHB68B3286050',6),
+(14,'Aquí agrega una descripción acerca del auto','MAZDA CX-3','Japon','Gasolina',17990,4000,2020,'4S3BMHB68B3286050',6),
+(15,'Aquí agrega una descripción acerca del auto','MAZDA CX-9','Japon','Gasolina',39990,4000,2020,'4S3BMHB68B3286050',6),
+(16,'Aquí agrega una descripción acerca del auto ','NEW VAN','Chino','Gasolina',9990,4000,2020,'4S3BMHB68B3286050',7),
+(17,'Aquí agrega una descripción acerca del auto','HONOR S','Chino','Gasolina',12990,4000,2020,'4S3BMHB68B3286050',7),
+(18,'Aquí agrega una descripción acerca del auto','UNI-T','Chino','Gasolina',25490,4000,2020,'4S3BMHB68B3286050',7);
+
+INSERT INTO `ventas` VALUES 
+(1,'00000001','2022-11-27',26610.8,1,1),
+(2,'00000002','2022-11-27',12490,2,1);
+
+INSERT INTO `detalle_venta` VALUES 
+(1,1,'Descripcion 1',26610.8,2660,1,1),
+(2,1,'Descripcion 2',26610.8,26610.8,2,2);
+
+
+select * from cliente;
+select * from marca;
+select * from carro;
+select * from empleado;
+select * from tipoempleado;
+select * from ventas;
+
+select * from detalle_venta;
+select * from ventas;
+
+SELECT c.nombres AS "CLIENTE",  em.Nombres AS "EMPLEADO", ca.descripcion AS "CARRO", d.Cantidad as "CANTIDAD",
+v.numero_serie AS "NUMERO_SERIE", v.fecha_ventas AS "FECHA_EMISION", v.Monto AS "MONTO"
+FROM ventas AS v
+JOIN cliente AS c
+ON v.id_cliente=c.id_cliente
+JOIN empleado as em
+ON em.id_empleado=v.id_empleado
+LEFT JOIN detalle_venta AS d
+ON d.id_venta=v.id_venta
+LEFT JOIN carro AS ca
+ON ca.id_carro=d.id_carro 
+GROUP BY c.nombres,em.Nombres,ca.descripcion,d.Cantidad,v.numero_serie,v.fecha_ventas,v.Monto
